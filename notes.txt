@@ -18,3 +18,11 @@ facility.iron -= 1
 colony.iron += 1
 transitoryState = {}
 render() via mainContainer.dispatchEvent(new CustomEvent("stateChange"))
+
+To-do:
+database needs to be json
+    fetch requests
+    dataAccess.js
+    second transient state for fetch requests
+    Work in our individual modules
+    
