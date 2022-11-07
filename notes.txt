@@ -1,0 +1,20 @@
+State 0 (initial load)
+Governors selector is standard
+facilities selector is empty
+
+State 1 (governor has been changed)
+facilities selector populated with all facility names
+Colony Mineral list displays colony name and stock in aside
+adds governor and colony ids to transient state
+
+State 2 (facility has been changed)
+updating facility name and availability/radio buttons
+
+State 3+ (mineral radio button changed)
+Add 1 ton to transitory state/ space cart. "1 ton of Mineral from Facility"
+
+State 4 (Purchase Mineral on click)
+facility.iron -= 1
+colony.iron += 1
+transitoryState = {}
+render() via mainContainer.dispatchEvent(new CustomEvent("stateChange"))
