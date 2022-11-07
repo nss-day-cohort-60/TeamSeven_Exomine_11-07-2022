@@ -1,1 +1,1 @@
-//Organizing html string functions
+// Organizing html string functions
