@@ -1,4 +1,4 @@
-import { transientCart, getColonies, getGovernors } from "./dataaccess.js"
+import { getGovernors, setGovernorsChoice } from "./dataAccess.js"
 
 
 //creating drop down <select> with list of all governor.name
@@ -10,11 +10,12 @@ export const Governors = () => {
 
     let html = `
         <ul>
+            <label for="governorsList">Choose a Governor:</label>
             <select id="governorsList">
                 <option value="governor">Governors</option>
                 ${govna.map(
                     gov => {
-                        return `option value="${gov.id}" name="governor">${gov.name}</option>`
+                        return `<option value="${gov.id}" name="governor">${gov.name}</option>`
                     }
                 ).join("")
             }
@@ -27,16 +28,16 @@ export const Governors = () => {
 
 //using.find to match the ids. once the ids are matched, then we can render the proper data. render colonies function is a messy messy 
 
-export const renderColony = () => { 
-    const colonies = getColonies()
-    const cart = transientCart()
+// export const renderColony = () => { 
+//     const colonies = getColonies()
+//     const cart = transientCart()
 
-    const matchedColony = colonies.find(col => col.id === cart.governors)
-    //gov drop will populate the transient cart. if the gov.id is the colony.id render the colony data
-    `
-    <ul>
-        <div id="colonyMinerals">
-            // ${colonies.map(
+//     const matchedColony = colonies.find(col => col.id === cart.governors)
+//     //gov drop will populate the transient cart. if the gov.id is the colony.id render the colony data
+//     `
+//     <ul>
+//         <div id="colonyMinerals">
+//             // ${colonies.map(
             //     col => {
 
             //         if (col.id === )
@@ -50,14 +51,15 @@ export const renderColony = () => {
             // )}
 
 
-    </ul>`
-}
+//     </ul>`
+// }
 
-const mainContainer = document.querySelector("#container")
-mainContainer.addEventListener("change", (event) => {
-    if(clickEvent.target.id === "governor") {
-        renderColony()
 
+document.addEventListener("change", (event) => {
+    if(event.target.name === "governor") {
+        setGovernorsChoice(parseInt(event.target.value))
+        // renderColony()
+        document.dispatchEvent(new CustomEvent("stateChange"))
 
     }
 })
