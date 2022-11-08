@@ -20,8 +20,8 @@ export const getGovernors = () => {
     return transientState.governors.map(governor => ({...governor}))
 }
 
-export const setGovernorsChoice = (id) => { 
-    return transientState.governorsChoice = id 
+export const setGovernorsChoice = (id) => {
+    return transientState.governorsChoice=id
 }
 
 
@@ -57,31 +57,32 @@ export const getFacilities = () => {
 }
 
 
-export const getTransient = () => { 
+export const getTransient = () => {
     return transientState
 }
 
-/*
+
+
 // function that will POST mineral choice to API 
-export const purchaseMineral = (colonyPurchases) => { 
+// export const purchaseMineral = (colonyPurchases) => { 
 
-    // sends information to json
-    const fetchOptions = { 
-        method: "POST", 
-        headers: { 
-            "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify(colonyPurchases)
-    }
+//     // sends information to json
+//     const fetchOptions = { 
+//         method: "POST", 
+//         headers: { 
+//             "Content-Type": "application/json"
+//         }, 
+//         body: JSON.stringify(colonyPurchases)
+//     }
 
-    // fetch info from API 
-    // re-render & update state
-    return fetch(`${API}/#`, fetchOptions)
-        .then(response => response.json())
-         .then(() => { 
-            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-        })
-}
-*/ 
+//     // fetch info from API 
+//     // re-render & update state
+//     return fetch(`${API}/mineralChoice`, fetchOptions)
+//         .then(response => response.json())
+//          .then(() => { 
+//             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+//         })
+// }
+
 
 

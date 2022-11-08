@@ -1,4 +1,5 @@
 //Focused on rendering
+import { fetchGovernors, fetchFacilities } from "./dataAccess.js"
 import { Exomine } from "./Exomine.js"
 import { fetchGovernors, fetchFacilities } from "./dataAccess.js"
 const mainContainer = document.querySelector("#mainContainer")

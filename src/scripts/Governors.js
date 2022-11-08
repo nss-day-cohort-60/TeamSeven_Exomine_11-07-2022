@@ -42,12 +42,12 @@ export const renderColony = () => {
     const colonies = getColonies()
     const cart = transientCart()
 
-    const matchedColony = colonies.find(col => col.id === cart.governors)
-    //gov drop will populate the transient cart. if the gov.id is the colony.id render the colony data
-    `
-    <ul>
-        <div id="colonyMinerals">
-            // ${colonies.map(
+//     const matchedColony = colonies.find(col => col.id === cart.governors)
+//     //gov drop will populate the transient cart. if the gov.id is the colony.id render the colony data
+//     `
+//     <ul>
+//         <div id="colonyMinerals">
+//             // ${colonies.map(
             //     col => {
 
             //         if (col.id === )
