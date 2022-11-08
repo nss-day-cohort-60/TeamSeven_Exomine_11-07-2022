@@ -1,15 +1,8 @@
-const transientCart = { 
-    // start as empty arrays that will store objects
-    governors: [], 
-    colonies: [], 
-    facilities: [], 
-    cart: {
-
-    }
+const transientState = { 
+   
 }
 
 const API = "http://localhost:8088"
-const mainContainer = document.querySelector("#mainContainer")
 
 
 /* GOVERNORS */
@@ -18,13 +11,17 @@ export const fetchGovernors = () => {
         .then(response => response.json())
         .then(
             (governorsData) => { 
-                transientCart.governors = governorsData
+                transientState.governors = governorsData
             }
         )
 }
 
 export const getGovernors = () => { 
-    return transientCart.governors.map(governor => ({...governor}))
+    return transientState.governors.map(governor => ({...governor}))
+}
+
+export const setGovernorsChoice = (id) => { 
+    return transientState.governorsChoice = id 
 }
 
 
@@ -34,13 +31,13 @@ export const fetchColonies = () => {
         .then(response => response.json())
         .then(
             (colonyData) => { 
-                transientCart.colonies = colonyData
+                transientState.colonies = colonyData
             }
         )
 }
 
 export const getColonies = () => { 
-    return transientCart.colonies.map(colony => ({...colony}))
+    return transientState.colonies.map(colony => ({...colony}))
 }
 
 
@@ -50,32 +47,21 @@ export const fetchFacilities = () => {
         .then(response => response.json())
         .then(
             (facilityData) => { 
-                transientCart.facilities = facilityData
+                transientState.facilities = facilityData
             }
         )
 }
 
 export const getFacilities = () => { 
-    return transientCart.facilities.map(facility => ({...facility}))
+    return transientState.facilities.map(facility => ({...facility}))
 }
 
 
-/* CART */ 
-export const fetchCart = () => {
-    return fetch(`${API}/cart`)
-        .then(response => response.json())
-        .then( 
-            (cartData) => { 
-                transientCart.cart = cartData
-            }
-        )
+export const getTransient = () => { 
+    return transientState
 }
 
-export const getCart = () => { 
-    return transientCart.cart.map(item => ({...item}))
-}
-
-
+/*
 // function that will POST mineral choice to API 
 export const purchaseMineral = (colonyPurchases) => { 
 
@@ -90,12 +76,12 @@ export const purchaseMineral = (colonyPurchases) => {
 
     // fetch info from API 
     // re-render & update state
-    return fetch(`${API}/mineralChoice`, fetchOptions)
+    return fetch(`${API}/#`, fetchOptions)
         .then(response => response.json())
          .then(() => { 
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
-
+*/ 
 
 
