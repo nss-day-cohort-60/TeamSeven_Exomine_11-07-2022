@@ -8,6 +8,7 @@ export const Exomine = () => {
     <title id="title">Exomine</title>
     ${Governors()}
     ${Facilities()}
+    
     `
     return html
 }

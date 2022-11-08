@@ -1,10 +1,8 @@
 const transientState = { 
-    
-    // start as empty arrays that will store objects
+   
 }
 
 const API = "http://localhost:8088"
-const mainContainer = document.querySelector("#mainContainer")
 
 
 /* GOVERNORS */
