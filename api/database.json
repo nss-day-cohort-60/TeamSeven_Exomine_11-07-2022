@@ -91,6 +91,6 @@
             "benadrylStock": 0
         }
     ], 
-    "cart": [], 
-    "availableResources": []
+    "cart": {}, 
+    "availableResources": {}
 }
