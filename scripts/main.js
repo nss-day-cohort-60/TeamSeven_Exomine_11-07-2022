@@ -2,6 +2,7 @@
 import { Exomine } from "./Exomine.js"
 const mainContainer = document.querySelector("#mainContainer")
 
+
 const render = () => {
     fetchGovernors()
         .then(()=>fetchFacilities())

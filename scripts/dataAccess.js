@@ -1,20 +1,18 @@
 const transientCart = { 
+    // start as empty arrays that will store objects
     governors: [], 
     colonies: [], 
     facilities: [], 
-    cart: []
+    cart: {
 
-    /*
-    mineralChoice: [], 
-    availableResources: []
-    */
+    }
 }
 
 const API = "http://localhost:8088"
-const mainContainer = document.querySelector("#container")
+const mainContainer = document.querySelector("#mainContainer")
+
 
 /* GOVERNORS */
-
 export const fetchGovernors = () => { 
     return fetch(`${API}/governors`)
         .then(response => response.json())
@@ -31,7 +29,6 @@ export const getGovernors = () => {
 
 
 /* COLONIES */ 
-
 export const fetchColonies = () => { 
     return fetch(`${API}/colonies`)
         .then(response => response.json())
@@ -48,7 +45,6 @@ export const getColonies = () => {
 
 
 /* FACILITIES */ 
-
 export const fetchFacilities = () => { 
     return fetch(`${API}/facilities`)
         .then(response => response.json())
@@ -65,7 +61,6 @@ export const getFacilities = () => {
 
 
 /* CART */ 
-
 export const fetchCart = () => {
     return fetch(`${API}/cart`)
         .then(response => response.json())
@@ -82,7 +77,6 @@ export const getCart = () => {
 
 
 // function that will POST mineral choice to API 
-
 export const purchaseMineral = (colonyPurchases) => { 
 
     // sends information to json
@@ -103,26 +97,5 @@ export const purchaseMineral = (colonyPurchases) => {
         })
 }
 
-/*
-// function that will POST to available resources 
-// still working on this! :) 
 
-export const saveResource = (finalOrder) => { 
 
-    const fetchOptions = { 
-        method: "POST", 
-        headers: { 
-            "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify(finalOrder)
-    }
-
-    return fetch(`${API}/availableResources`, fetchOptions)
-        .then(response => response.json())
-        .then(
-            (data) => { 
-                mainContainer.dispatchEvent(new CustomEvent("stateChanged")
-            }
-        )
-}
-*/ 

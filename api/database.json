@@ -90,7 +90,7 @@
             "berylliumStock": 16,
             "benadrylStock": 0
         }
-    ], 
+    ],
     "cart": {}, 
-    "availableResources": {}
+    "availableResources": []
 }
