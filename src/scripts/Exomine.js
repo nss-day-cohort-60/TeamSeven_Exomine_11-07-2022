@@ -17,7 +17,9 @@ export const Exomine = () => {
     </div>
     
     <div class="mineralList_container">
+        <div class="mineralList">
            <h2>Mineral List</h2>
+        </div>
         
 
         <article class="button_container">
