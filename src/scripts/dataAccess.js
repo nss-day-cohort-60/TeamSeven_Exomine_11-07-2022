@@ -6,7 +6,6 @@ export const transientState = {
 
 
 const API = "http://localhost:8088"
-const mainContainer = document.querySelector("#mainContainer")
 
 
 /* GOVERNORS */

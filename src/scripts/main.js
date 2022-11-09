@@ -1,6 +1,7 @@
 //Focused on rendering
 import { fetchGovernors, fetchFacilities } from "./dataAccess.js"
 import { Exomine } from "./Exomine.js"
+import { fetchGovernors, fetchFacilities } from "./dataAccess.js"
 const mainContainer = document.querySelector("#mainContainer")
 
 
@@ -14,7 +15,7 @@ const render = () => {
 
 render()
 
-mainContainer.addEventListener("stateChanged",
-(e)=>{
+mainContainer.addEventListener("stateChanged", 
+(event) => { 
     render()
 })
