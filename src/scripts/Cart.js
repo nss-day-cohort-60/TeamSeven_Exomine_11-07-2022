@@ -11,7 +11,7 @@ export const Cart = () => {
     <legend>Space Cart</legend>
     `
     if(transient.purchaseChoice){
-        html +=`1 ton of ${transient.purchaseChoice} from ${transient.facilityChoice}.`
+        html +=`1 ton of ${transient.purchaseChoice} from ${transient.facilitiesChoice}.`
     }
     html += `<button>Purchase Mineral</button>`
     return html
