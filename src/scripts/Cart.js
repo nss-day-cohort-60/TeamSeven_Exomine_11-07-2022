@@ -3,7 +3,8 @@
     // compare and confirm click event target to the button
     // add transitory values to Colony minerals
     // reset the transitory state
-import { getTransient } from "./dataAccess.js"
+import { getTransient, getFacilities, sendFacilities } from "./dataAccess.js"
+
 
 export const Cart = () => {
     const transient = getTransient()
@@ -13,6 +14,24 @@ export const Cart = () => {
     if(transient.purchaseChoice){
         html +=`1 ton of ${transient.purchaseChoice} from ${transient.facilitiesChoice}.`
     }
-    html += `<button>Purchase Mineral</button>`
+    html += `<button id="button">Purchase Mineral</button>`
     return html
 }
+
+// document.addEventListener("click", clickEvent => {
+//     const transient = getTransient()
+//     const facilities = getFacilities()
+//     if (clickEvent.target.id === "button"){
+//         console.log(transient)
+//         for (const facility of facilities) {
+//             if (facility.name === transient.facilitiesChoice) {
+//                 if (facility.name === transient.facilitiesChoice && facilities.keys === transient.purchaseChoice){
+//                 const changes = transient.purchaseChoice
+//                 const variable = transient.purchaseChoice ++
+//                 facilities.variable
+//                 sendFacilities(changes)
+//                 }
+//             }
+//         }
+//     }
+// })
