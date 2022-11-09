@@ -34,3 +34,9 @@ mainContainer.addEventListener("change", (event) => {
 
     }
 })
+
+export const Colonies = () => { 
+
+    
+
+}

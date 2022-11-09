@@ -47,3 +47,22 @@ export const Facilities = () => {
     }
     return html
 }
+
+export const MineralList = () => {
+
+    const facilities = getFacilities()
+
+    let mineralList = facilities.map(facility => {
+        return `<h3>Facility Minerals for ${facility.name}</h3>`
+        // <input type="radio" name="iron" value="iron">${facility.iron}</input>
+        // <input type="radio" name="aluminum" value="aluminum">${facility.transparentAluminum}</input>
+        // <input type="radio" name="chromium" value="chromium">${facility.chromium}</input>
+        // <input type="radio" name="beryllium" value="beryllium">${facility.beryllium}</input>
+        // <input type="radio" name="benadryl" value="benadryl">${facility.benadryl}</input>`
+    }).join("")
+
+
+    return mineralList
+}
+
+
