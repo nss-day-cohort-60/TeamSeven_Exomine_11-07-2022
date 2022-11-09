@@ -1,5 +1,5 @@
 //Focused on rendering
-import { fetchGovernors, fetchFacilities } from "./dataAccess.js"
+import { fetchGovernors, fetchFacilities, fetchColonies } from "./dataAccess.js"
 import { Exomine } from "./Exomine.js"
 
 const mainContainer = document.querySelector("#mainContainer")
@@ -8,6 +8,7 @@ const mainContainer = document.querySelector("#mainContainer")
 const render = () => {
     fetchGovernors()
         .then(()=>fetchFacilities())
+        .then(()=>fetchColonies())
         .then(()=>{
             mainContainer.innerHTML = Exomine()
         })

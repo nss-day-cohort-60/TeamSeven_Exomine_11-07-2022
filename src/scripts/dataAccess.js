@@ -27,6 +27,14 @@ export const setGovernorsChoice = (id) => {
     return transientState.cart.governorsChoice=id
 }
 
+export const setFacilitiesChoice = (id) => {
+    return transientState.cart.facilitiesChoice=id
+}
+
+export const setPurchaseChoice = (id) => {
+    return transientState.cart.purchaseChoice=id
+}
+
 
 /* COLONIES */ 
 export const fetchColonies = () => { 
@@ -61,7 +69,7 @@ export const getFacilities = () => {
 
 
 export const getTransient = () => {
-    return transientState
+    return transientState.cart
 }
 
 
