@@ -30,20 +30,19 @@ export const Facilities = () => {
     const facilities = getFacilities()
     const transient = getTransient()
 
-    let html = `<label for="chooseFacility">Choose a Facility:</label>
-    <select id="facility" name="chooseFacility" value="1">
-    <option value="0">Facility</option>`
-    
-    if (transient.governorsChoice) {
-        for (const facility of facilities) {
-            html += `
-                    <option name="chooseFacility" value="${facility.id}">${facility.name}</option>
-                    `
-            
-    }
-    html += `</select>`
-    } else {
-        html += `Please Select a Governor Before Choosing a Facility </select>`
+    if(transient.cart.governorsChoice){
+        html+=`<label for="chooseFacility">Choose a Facility</label>
+        <select id="facility" name="chooseFacility" value="1">
+        <option value="0">Choose a Facility</option>
+        ${facilities.map(facility=>{
+            return `<option name="chooseFacility" value="${facility.id}">${facility.name}</option>`
+        })}
+        </select>`
+    }else {
+        html+=`<label for="chooseFacility">Choose a Facility</label>
+        <select id="facility" name="chooseFacility" value="1">
+        <option value="0">First, Choose a Governor</option>
+        </select>`
     }
     return html
 }

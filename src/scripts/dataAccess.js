@@ -1,6 +1,9 @@
-const transientState = { 
-   
+export const transientState = { 
+    cart : {}
+    
+    // start as empty arrays that will store objects
 }
+
 
 const API = "http://localhost:8088"
 
@@ -21,7 +24,7 @@ export const getGovernors = () => {
 }
 
 export const setGovernorsChoice = (id) => {
-    return transientState.governorsChoice=id
+    return transientState.cart.governorsChoice=id
 }
 
 
