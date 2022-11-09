@@ -29,6 +29,7 @@ governorsList.addEventListener("change", changeEvent => {
 export const Facilities = () => {
     const facilities = getFacilities()
     const transient = getTransient()
+    let html = ""
 
     if(transient.cart.governorsChoice){
         html+=`<label for="chooseFacility">Choose a Facility</label>

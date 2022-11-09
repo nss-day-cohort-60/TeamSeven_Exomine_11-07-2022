@@ -26,41 +26,11 @@ export const Governors = () => {
     
 }
 
+mainContainer.addEventListener("change", (event) => {
+    if(event.target.id === "governorsList") {
+        setGovernorsChoice(parseInt(event.target.value))
+        // renderColony()
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 
-// document.addEventListener("change", (event) => {
-//     if(event.target.name === "governor") {
-//         setGovernorsChoice(parseInt(event.target.value))
-//         //renderColony()
-
-//     }
-// })
- 
-
-//using.find to match the ids. once the ids are matched, then we can render the proper data. render colonies function is a messy messy 
-
-
-//export const renderColony = () => { 
- //   const colonies = getColonies()
-   // const cart = transientCart()
-
-//     const matchedColony = colonies.find(col => col.id === cart.governors)
-//     //gov drop will populate the transient cart. if the gov.id is the colony.id render the colony data
-//     `
-//     <ul>
-//         <div id="colonyMinerals">
-//             // ${colonies.map(
-            //     col => {
-
-            //         if (col.id === )
-            //         return `div id="${col.id}" name="colonies">${col.name}</div>
-            //                 <li>${col.ironStock}</li>
-            //                 <li>${col.tAluminumStock}</li>
-            //                 <li>${col.chromiumStock}</li>
-            //                 <li>${col.berylliumStock}</li>
-            //                 <li>${col.benadrylStock}</li>`
-            //     }
-            // )}
-
-
-//     </ul>`
-// }
+    }
+})

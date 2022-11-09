@@ -3,6 +3,7 @@ import { Governors } from "./Governors.js"
 import { Facilities } from "./Facilities.js"
 import { setGovernorsChoice } from "./dataAccess.js"
 
+const mainContainer = document.querySelector("#mainContainer")
 
 export const Exomine = () => {
     const html=`
@@ -14,11 +15,3 @@ export const Exomine = () => {
 }
 
 
-document.addEventListener("change", (event) => {
-    if(event.target.name === "governor") {
-        setGovernorsChoice(parseInt(event.target.value))
-        // renderColony()
-        document.dispatchEvent(new CustomEvent("stateChanged"))
-
-    }
-})
