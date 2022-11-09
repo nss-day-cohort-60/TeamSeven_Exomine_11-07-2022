@@ -1,4 +1,4 @@
-import {getGovernors, setGovernorsChoice } from "./dataAccess.js"
+import {getGovernors, setGovernorsChoice, getTransient, getColonies } from "./dataAccess.js"
 
 //creating drop down <select> with list of all governor.name
 //we need'a getter
@@ -24,6 +24,36 @@ export const Governors = () => {
 
     return html
     
+}
+
+export const colonyStock = () => {
+    const transient = getTransient()
+    const governors = getGovernors()
+    const colonies = getColonies()
+    let html = ""
+
+    if(transient.governorsChoice){
+        for(const governor of governors){
+            if(transient.governorsChoice === governor.id){
+                for(const colony of colonies){
+                    if(governor.colonyId === colony.id){
+                    html += `<legend>${colony.name} Mineral Stock</legend>
+                            <ul>
+                                <li>Iron: ${colony.ironStock} tons</li>
+                                <li>Transparent Aluminum ${colony.tAluminumStock} tons</li>
+                                <li>Chromium ${colony.chromiumStock} tons</li>
+                                <li>Beryllium ${colony.berylliumStock} tons</li>
+                                <li>Benadryl ${colony.benadrylStock} tons</li>
+                            </ul>`
+                        }
+                    }}
+                }
+            }else{
+                html += `
+                <legend>Mineral Stock</legend>
+                <p>Please Choose Your Govna</p>`
+    }
+    return html
 }
 
 mainContainer.addEventListener("change", (event) => {
