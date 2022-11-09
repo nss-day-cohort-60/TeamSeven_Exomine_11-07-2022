@@ -1,4 +1,4 @@
-export const transientState = { 
+export const transientState = {
     cart : {}
     
     // start as empty arrays that will store objects
