@@ -4,6 +4,7 @@ import { getGovernors, setGovernorsChoice } from "./dataAccess.js"
 //creating drop down <select> with list of all governor.name
 //we need'a getter
 //generate Colony Mineral list based on governor.colonyId fk IF greater than 0.
+const mainContainer = document.querySelector("#mainContainer")
 
 export const Governors = () => {
     const govna = getGovernors()
@@ -12,7 +13,7 @@ export const Governors = () => {
         <ul>
             <label for="governorsList">Choose a Governor:</label>
             <select id="governorsList">
-                <option value="governor">Governors</option>
+                <option name="governor">Governors</option>
                 ${govna.map(
                     gov => {
                         return `<option value="${gov.id}" name="governor">${gov.name}</option>`
@@ -55,11 +56,11 @@ export const Governors = () => {
 // }
 
 
-document.addEventListener("change", (event) => {
-    if(event.target.name === "governor") {
+mainContainer.addEventListener("change", (event) => {
+    if(event.target.id === "governorsList") {
         setGovernorsChoice(parseInt(event.target.value))
         // renderColony()
-        document.dispatchEvent(new CustomEvent("stateChange"))
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 
     }
 })

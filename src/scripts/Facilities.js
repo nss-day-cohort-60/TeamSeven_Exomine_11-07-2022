@@ -55,7 +55,7 @@ export const Facilities = () => {
     const transient = getTransient()
     let html = ``
 
-    if(transient.governorsChoice){
+    if(transient.cart.governorsChoice){
         html+=`<label for="chooseFacility">Choose a Facility</label>
         <select id="facility" name="chooseFacility" value="1">
         <option value="0">Choose a Facility</option>
