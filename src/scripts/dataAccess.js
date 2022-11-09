@@ -72,6 +72,14 @@ export const getTransient = () => {
     return transientState.cart
 }
 
+// export const sendFacilities = (userServiceRequest) => {
+
+//     return fetch(`${API}/facilites`, "PUT")
+//         .then(() => {
+//             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+//         })
+// }
+
 
 
 // function that will POST mineral choice to API 
