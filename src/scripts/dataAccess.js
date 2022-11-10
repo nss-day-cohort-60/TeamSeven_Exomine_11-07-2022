@@ -1,4 +1,10 @@
 export const transientState = {
+    governors: [], 
+    facilities: [], 
+    colonies: [], 
+    facilityMineralLog: [], 
+    colonyMineralLog: [],
+    facilitiesChoice: [],
     cart : {}
     
     // start as empty arrays that will store objects
@@ -71,6 +77,37 @@ export const getFacilities = () => {
 export const getTransient = () => {
     return transientState.cart
 }
+
+/* FACILITY MINERAL LOG */ 
+export const fetchFacilityMineralLog = () => { 
+    return fetch(`${API}/facilityMineralLog`)
+        .then(response => response.json())
+        .then(
+            (facilityData) => { 
+                transientState.facilityMineralLog = facilityData
+            }
+        )
+}
+
+export const getFacilityMineralLog = () => { 
+    return transientState.facilityMineralLog.map(facilityMineral => ({...facilityMineral}))
+}
+
+/* COLONY MINERAL LOG */ 
+export const fetchColonyMineralLog = () => { 
+    return fetch(`${API}/colonyMineralLog`)
+        .then(response => response.json())
+        .then(
+            (colonyData) => { 
+                transientState.colonyMineralLog = colonyData
+            }
+        )
+}
+
+export const getColonyMineralLog = () => { 
+    return transientState.colonyMineralLog.map(colonyMineral => ({...colonyMineral}))
+}
+
 
 // export const sendFacilities = (userServiceRequest) => {
 
