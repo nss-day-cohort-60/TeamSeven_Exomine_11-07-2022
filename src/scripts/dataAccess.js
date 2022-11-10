@@ -109,6 +109,21 @@ export const getColonyMineralLog = () => {
 }
 
 
+export const fetchMinerals = () => { 
+    return fetch(`${API}/minerals`)
+        .then(response => response.json())
+        .then(
+            (facilityData) => { 
+                transientState.minerals = facilityData
+            }
+        )
+}
+
+export const getMinerals = () => { 
+    return transientState.minerals.map(mineral => ({...mineral}))
+}
+
+
 // export const sendFacilities = (userServiceRequest) => {
 
 //     return fetch(`${API}/facilites`, "PUT")
