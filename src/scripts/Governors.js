@@ -40,10 +40,10 @@ export const colonyStock = () => {
                     html += `<legend>${colony.name} Mineral Stock</legend>
                             <ul>
                                 <li>Iron: ${colony.ironStock} tons</li>
-                                <li>Transparent Aluminum ${colony.tAluminumStock} tons</li>
-                                <li>Chromium ${colony.chromiumStock} tons</li>
-                                <li>Beryllium ${colony.berylliumStock} tons</li>
-                                <li>Benadryl ${colony.benadrylStock} tons</li>
+                                <li>Transparent Aluminum: ${colony.tAluminumStock} tons</li>
+                                <li>Chromium: ${colony.chromiumStock} tons</li>
+                                <li>Beryllium: ${colony.berylliumStock} tons</li>
+                                <li>Benadryl: ${colony.benadrylStock} tons</li>
                             </ul>`
                         }
                     }}
@@ -51,7 +51,7 @@ export const colonyStock = () => {
             }else{
                 html += `
                 <legend>Mineral Stock</legend>
-                <p>Please Choose Your Govna</p>`
+                `
     }
     return html
 }

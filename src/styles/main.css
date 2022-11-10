@@ -1,12 +1,21 @@
-.dropdown_container, .colonyMineral, .mineralList_container, .button_container  { 
+
+
+body { 
+    padding: 20px; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.dropdown_container, .facMineral_container, .colonyMineral, .button_container  { 
     border: 1px solid black; 
  
 }
 
 .dropdown_list { 
     display: flex; 
+    align-content: flex-start; 
     padding: 50px;
-    padding: 20px; 
+    
+    
 }
 
 .dropdown_container { 
@@ -19,25 +28,53 @@
 
 .colonyMineral { 
     padding: 20px; 
+    margin-left: 50px; 
+    width: 25%; 
 }
 
+.facMineral_container { 
+    display: flex; 
+    flex-direction: column;
+    padding: 20px; 
+    width: 75%; 
+  
+     
+}
 
 .mineralList_container { 
     display: flex; 
     flex-direction: row ; 
-    padding: 20px;  
+    padding: 20px; 
+    width: 35%; 
+    
     
 }
+
+.mineralRadio { 
+    display: flex; 
+    flex-direction: column; 
+    padding-top: 20px; 
+}
+
 
 
 .button_container{ 
  padding: 20px; 
  margin-left: 50px; 
+ 
 } 
 
+.spaceCart {
+    padding-top: 50px;  
+   
+}
 
-#purchaseButton { 
-    
+#button { 
+
+    display: flex; 
+    align-items: center; 
+    margin-top: 20px;
    height: 50px; 
    width: 75px; 
+   
 }

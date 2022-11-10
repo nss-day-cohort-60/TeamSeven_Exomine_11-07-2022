@@ -35,17 +35,22 @@ export const FacilityMinerals = () => {
     if (transient.facilitiesChoice){
         for (const facility of facilities){
             if(facility.name === transient.facilitiesChoice){
-                html += `<legend>Minerals Available at ${facility.name}</legend>
-                <input type="radio" id="iron" name="minerals">
-                <label for="${facility.iron}">${facility.iron} tons of Iron</label>
-                <input type="radio" id="transparentAluminum" name="minerals">
-                <label for="${facility.transparentAluminum}">${facility.transparentAluminum} tons of Transparent Aluminum</label>
-                <input type="radio" id="chromium" name="minerals">
-                <label for="${facility.chromium}">${facility.chromium} tons of Chromium</label>
-                <input type="radio" id="beryllium" name="minerals">
-                <label for="${facility.beryllium}">${facility.beryllium} tons of Beryllium</label>
-                <input type="radio" id="benadryl" name="minerals">
-                <label for="${facility.benadryl}">${facility.benadryl} tons of Benadryl</label>`
+                html += `
+                <legend>Minerals Available at ${facility.name}</legend>
+                
+                <div class="mineralRadio">
+                    <input type="radio" id="iron" name="minerals">
+                    <label for="${facility.iron}">${facility.iron} tons of Iron</label>
+                    <input type="radio" id="transparentAluminum" name="minerals">
+                    <label for="${facility.transparentAluminum}">${facility.transparentAluminum} tons of Transparent Aluminum</label>
+                    <input type="radio" id="chromium" name="minerals">
+                    <label for="${facility.chromium}">${facility.chromium} tons of Chromium</label>
+                    <input type="radio" id="beryllium" name="minerals">
+                    <label for="${facility.beryllium}">${facility.beryllium} tons of Beryllium</label>
+                    <input type="radio" id="benadryl" name="minerals">
+                    <label for="${facility.benadryl}">${facility.benadryl} tons of Benadryl</label>
+                </div>
+               `
             }
         }
     }else{
