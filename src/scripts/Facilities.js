@@ -31,44 +31,49 @@ export const Facilities = () => {
 export const FacilityMinerals = () => {
 
     let html = ""
-    
+
     const transient = getTransient()
     const facilities = getFacilities()
     const filteredFacilities = facilities.filter(facility => transient.facilitiesChoice === facility.id)
     const facilityMineralLog = getFacilityMineralLog()
     const minerals = getMinerals()
 
-    const array = []
-    const logs = []
-    
+ 
+
     if (transient.facilitiesChoice) {
-        for (const log of facilityMineralLog){
-            if (transient.facilitiesChoice === filtered.id) {
-                html += `<legend>Minerals Available at ${log.name}</legend>`
-                for (const log of facilityMineralLog) {
-                    if (log.facilityId === filtered.id)
-                    logs.push(log)
-                }
-                for (const log of logs) {
-                for (const mineral of minerals){
-                    if (mineral.id === log.mineralId) {
-                        array.push(mineral)
-                    }
-                    }
-                    html += `  
-                    ${array.map(taco => `<div class="mineralRadio">
+
+        for (const filteredFacility of filteredFacilities) {
+            html += `<legend>Minerals Available at ${filteredFacility.name}</legend>`
+
+        }
+
+        for (const log of facilityMineralLog) {
+            if (transient.facilitiesChoice === log.facilityId) {
+
+                const mineralList = minerals.filter(mineral => mineral.id === log.mineralId)
+
+                html += `  
+                    ${mineralList.map(taco => `<div class="mineralRadio">
                     <input type="radio" id="iron" name="minerals">
                     <label for="${taco.id}">${log.stock} tons of ${taco.name}</label>
                     </div>`)}`
-                }
-                }
             }
+            // for (const log of logs) {
+            // for (const mineral of minerals){
+            //     if (mineral.id === log.mineralId) {
+            //         array.push(mineral)
+            //     }
+            //     }
         }
-        return html
     }
 
+    return html
+}
 
-        mainContainer.addEventListener("change", (event) => {
+
+
+
+mainContainer.addEventListener("change", (event) => {
     if (event.target.name === "chooseFacility") {
         setFacilitiesChoice(parseInt(event.target.value))
         // renderColony()
