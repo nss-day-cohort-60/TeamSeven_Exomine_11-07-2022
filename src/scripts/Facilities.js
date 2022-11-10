@@ -1,7 +1,7 @@
 //<select> of facility names IF governor drop down<select> has changed.
 //display available minerals as radio buttons when "change" eventListener happens.
 //change events for radio buttons that adds 1 ton to transitory state (cart)
-import { getFacilities, getTransient, setFacilitiesChoice, setPurchaseChoice, getFacilityMineralLog } from "./dataAccess.js"
+import { getFacilities, getTransient, setFacilitiesChoice, setPurchaseChoice, getFacilityMineralLog, getMinerals } from "./dataAccess.js"
 
 
 export const Facilities = () => {
@@ -11,10 +11,10 @@ export const Facilities = () => {
 
     if (transient.governorsChoice) {
         html += `<label for="chooseFacility">Choose a Facility</label>
-        <select id="facility" name="chooseFacility" value="1">
+        <select id="0" name="chooseFacility">
         <option value="0">Choose a Facility</option>
         ${facilities.map(facility => {
-            return `<option name="chooseFacility" value="${facility.name}">${facility.name}</option>`
+            return `<option name="chooseFacility" value="${facility.id}">${facility.name}</option>`
         })}
         </select>`
     } else {
@@ -30,44 +30,47 @@ export const Facilities = () => {
 
 export const FacilityMinerals = () => {
 
-    const facilities = getFacilities()
-    const facilityLog = getFacilityMineralLog()
-    const transient = getTransient()
-  
-
     let html = ""
+    
+    const transient = getTransient()
+    const facilities = getFacilities()
+    const filteredFacilities = facilities.filter(facility => transient.facilitiesChoice === facility.id)
+    const facilityMineralLog = getFacilityMineralLog()
+    const minerals = getMinerals()
+
+    const array = []
+    const logs = []
+    
     if (transient.facilitiesChoice) {
-        for (const facility of facilities) {
-            for (const mineral of facilityLog) {
-                if (facility.name === transient.facilitiesChoice && facility.id === mineral.mineral.id) {
-                    html += `
-                <legend>Minerals Available at ${facility.name}</legend>
-                
-                <div class="mineralRadio">
+        for (const log of facilityMineralLog){
+            if (transient.facilitiesChoice === filtered.id) {
+                html += `<legend>Minerals Available at ${log.name}</legend>`
+                for (const log of facilityMineralLog) {
+                    if (log.facilityId === filtered.id)
+                    logs.push(log)
+                }
+                for (const log of logs) {
+                for (const mineral of minerals){
+                    if (mineral.id === log.mineralId) {
+                        array.push(mineral)
+                    }
+                    }
+                    html += `  
+                    ${array.map(taco => `<div class="mineralRadio">
                     <input type="radio" id="iron" name="minerals">
-                    <label for="${facility.id}">${mineral.stock} tons of Iron</label>
-                    <input type="radio" id="transparentAluminum" name="minerals">
-                    <label for="${facility.id}">${mineral.stock} tons of Transparent Aluminum</label>
-                    <input type="radio" id="chromium" name="minerals">
-                    <label for="${facility.id}">${mineral.stock} tons of Chromium</label>
-                    <input type="radio" id="beryllium" name="minerals">
-                    <label for="${facility.id}">${mineral.stock} tons of Beryllium</label>
-                    <input type="radio" id="benadryl" name="minerals">
-                    <label for="${facility.id}">${mineral.stock} tons of Benadryl</label>
-                </div>
-               `
+                    <label for="${taco.id}">${log.stock} tons of ${taco.name}</label>
+                    </div>`)}`
+                }
                 }
             }
         }
-    } else {
-        html += `<legend>Facility Minerals</legend>`
+        return html
     }
-    return html
-}
 
-mainContainer.addEventListener("change", (event) => {
-    if (event.target.id === "facility") {
-        setFacilitiesChoice(event.target.value)
+
+        mainContainer.addEventListener("change", (event) => {
+    if (event.target.name === "chooseFacility") {
+        setFacilitiesChoice(parseInt(event.target.value))
         // renderColony()
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 
@@ -76,7 +79,7 @@ mainContainer.addEventListener("change", (event) => {
 
 mainContainer.addEventListener("change", (event) => {
     if (event.target.name === "minerals") {
-        setPurchaseChoice(event.target.id)
+        setPurchaseChoice(parseInt(event.target.id))
         // renderColony()
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 
