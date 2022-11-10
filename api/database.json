@@ -26,69 +26,59 @@
             "colonyId": 3
         }
     ],
-    "facilities": [
-        {
-            "id": 1,
-            "name": "Ganymeade",
-            "iron": 645,
-            "transparentAluminum": 745,
-            "chromium": 623,
-            "beryllium": 567,
-            "benadryl": 168
-        },
-        {
-            "id": 2,
-            "name": "Io",
-            "iron": 645,
-            "transparentAluminum": 745,
-            "chromium": 623,
-            "beryllium": 567,
-            "benadryl": 168
-        },
-        {
-            "id": 3,
-            "name": "Titan",
-            "iron": 645,
-            "transparentAluminum": 745,
-            "chromium": 623,
-            "beryllium": 567,
-            "benadryl": 168
-        },
-        {
-            "id": 4,
-            "name": "New jersey",
-            "iron": 645,
-            "transparentAluminum": 745,
-            "chromium": 623,
-            "beryllium": 567,
-            "benadryl": 168
-        }
-    ],
     "colonies": [
         {
             "id": 1,
-            "name": "Jamestown, Venus",
-            "ironStock": 23,
-            "tAluminumStock": 32,
-            "chromiumStock": 4,
-            "berylliumStock": 57,
-            "benadrylStock": 789
+            "name": "Jamestown, Venus"
+        
         },{
             "id": 2,
-            "name": "Losylvannia, Jupiter",
-            "ironStock": 6985,
-            "tAluminumStock": 654,
-            "chromiumStock": 345,
-            "berylliumStock": 42,
-            "benadrylStock": 4567
+            "name": "Losylvannia, Jupiter"
+        
         },{
             "id": 3,
-            "name": "Chawaysea, Wayland Prime",
-            "ironStock": 5,
-            "tAluminumStock": 5647,
-            "chromiumStock": 6,
-            "berylliumStock": 16,
-            "benadrylStock": 0
+            "name": "Chawaysea, Wayland Prime"
+
         }
+    ], 
+    "facilities": [
+        { "id": 1, "name": "Ganymeade" },
+        { "id": 2, "name": "Io" },
+        { "id": 3, "name": "Titan"},
+        { "id": 4, "name": "New jersey"}
+    ],
+    "minerals": [
+        { "id": 1, "name": "iron"},
+        { "id": 2, "name": "transparent aluminum"},
+        { "id": 3, "name": "chromium"},
+        { "id": 4, "name": "beryllium"},
+        { "id": 5, "name": "benadryl"}
+    ],
+    "facilityMineralLog": [
+        { "id": 1, "facilityId": 1, "mineralId": 5, "stock": 23},
+        { "id": 2, "facilityId": 1, "mineralId": 4, "stock": 77},
+        { "id": 3, "facilityId": 1, "mineralId": 3, "stock": 36},
+        { "id": 4, "facilityId": 2, "mineralId": 4, "stock": 90},
+        { "id": 5, "facilityId": 2, "mineralId": 5, "stock": 12},
+        { "id": 6, "facilityId": 3, "mineralId": 1, "stock": 54},
+        { "id": 7, "facilityId": 3, "mineralId": 2, "stock": 76},
+        { "id": 8, "facilityId": 4, "mineralId": 4, "stock": 29},
+        { "id": 9, "facilityId": 4, "mineralId": 5, "stock": 28}, 
+        { "id": 10, "facilityId": 4, "mineralId": 1, "stock": 62} 
+    ],
+    "colonyMineralLog": [
+        { "id": 1, "colonyId": 1, "mineralId": 1, "stock": 65},
+        { "id": 2, "colonyId": 1, "mineralId": 2, "stock": 85},
+        { "id": 3, "colonyId": 1, "mineralId": 3, "stock": 7},
+        { "id": 4, "colonyId": 1, "mineralId": 4, "stock": 31},
+        { "id": 5, "colonyId": 2, "mineralId": 4, "stock": 71},
+        { "id": 6, "colonyId": 2, "mineralId": 5, "stock": 78},
+        { "id": 7, "colonyId": 3, "mineralId": 2, "stock": 90},
+        { "id": 8, "colonyId": 3, "mineralId": 3, "stock":26},
+        { "id": 9, "colonyId": 3, "mineralId": 4, "stock": 25}, 
+        { "id": 10, "colonyId": 3, "mineralId": 5, "stock": 34} 
     ]
+
+
 }
+
