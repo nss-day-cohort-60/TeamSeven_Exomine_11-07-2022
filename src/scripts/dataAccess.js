@@ -1,10 +1,4 @@
 export const transientState = {
-    governors: [], 
-    facilities: [], 
-    colonies: [], 
-    facilityMineralLog: [], 
-    colonyMineralLog: [],
-    facilitiesChoice: [],
     cart : {}
     
     // start as empty arrays that will store objects
@@ -12,6 +6,7 @@ export const transientState = {
 
 
 const API = "http://localhost:8088"
+const mainContainer = document.querySelector("#mainContainer")
 
 
 /* GOVERNORS */
@@ -39,6 +34,10 @@ export const setFacilitiesChoice = (id) => {
 
 export const setPurchaseChoice = (id) => {
     return transientState.cart.purchaseChoice=id
+}
+
+export const setColoniesChoice = (id) => {
+    return transientState.cart.coloniesChoice=id
 }
 
 
@@ -123,37 +122,32 @@ export const getMinerals = () => {
     return transientState.minerals.map(mineral => ({...mineral}))
 }
 
+export const postColonyLog = (obj) => {
+    const data = {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(obj)
+    }
+    return fetch(`${API}/colonyMineralLog`, data)
+            .then(request=>request.json())
+}
 
-// export const sendFacilities = (userServiceRequest) => {
+export const putColonyLog = (obj) => {
+    const data = {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(obj)
+    }
+    return fetch(`${API}/colonyMineralLog/${obj.id}`, data)
+            .then(request=>request.json())
+}
 
-//     return fetch(`${API}/facilites`, "PUT")
-//         .then(() => {
-//             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
-
-
-
-// function that will POST mineral choice to API 
-// export const purchaseMineral = (colonyPurchases) => { 
-
-//     // sends information to json
-//     const fetchOptions = { 
-//         method: "POST", 
-//         headers: { 
-//             "Content-Type": "application/json"
-//         }, 
-//         body: JSON.stringify(colonyPurchases)
-//     }
-
-//     // fetch info from API 
-//     // re-render & update state
-//     return fetch(`${API}/mineralChoice`, fetchOptions)
-//         .then(response => response.json())
-//          .then(() => { 
-//             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         })
-// }
-
-
-
+export const putFacilityLog = (obj) => {
+    const data = {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(obj)
+    }
+    return fetch(`${API}/facilityMineralLog/${obj.id}`, data)
+            .then(request=>request.json())
+}

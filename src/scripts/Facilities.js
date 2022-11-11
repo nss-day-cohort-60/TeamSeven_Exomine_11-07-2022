@@ -54,7 +54,7 @@ export const FacilityMinerals = () => {
 
                 html += `  
                     ${mineralList.map(taco => `<div class="mineralRadio">
-                    <input type="radio" id="iron" name="minerals">
+                    <input type="radio" id="${taco.id}" name="minerals">
                     <label for="${taco.id}">${log.stock} tons of ${taco.name}</label>
                     </div>`)}`
             }
