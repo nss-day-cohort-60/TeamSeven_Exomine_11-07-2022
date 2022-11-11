@@ -1,4 +1,4 @@
-import { getGovernors, setGovernorsChoice, getTransient, getColonies, getColonyMineralLog, getMinerals } from "./dataAccess.js"
+import { getGovernors, setGovernorsChoice, setColoniesChoice, getTransient, getColonies, getColonyMineralLog, getMinerals } from "./dataAccess.js"
 
 //creating drop down <select> with list of all governor.name
 //we need'a getter
@@ -10,12 +10,12 @@ export const Governors = () => {
 
     let html = `
         <ul>
-            <label for="governor">Choose a Governor:</label>
+            <label for="governorsList">Choose a Governor:</label>
             <select id="governorsList">
                 <option name="governor">Governors</option>
                 ${govna.map(
         gov => {
-            return `<option value="${gov.id}" name="governor">${gov.name}</option>`
+            return `<option value="${gov.id}--${gov.colonyId}" name="governor">${gov.name}</option>`
         }
     ).join("")
         }
@@ -78,10 +78,12 @@ export const colonyStock = () => {
 
 mainContainer.addEventListener("change", (event) => {
     if (event.target.id === "governorsList") {
-        setGovernorsChoice(parseInt(event.target.value))
+        const [govId, colonyId] = event.target.value.split("--")
+        setGovernorsChoice(parseInt(govId))
+        setColoniesChoice(parseInt(colonyId))
         // renderColony()
+        
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-
     }
 })
 
