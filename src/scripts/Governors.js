@@ -52,12 +52,19 @@ export const colonyStock = () => {
             html += `${filteredColonies.map(taco => `<legend>${taco.name} Mineral Stock</legend>
             <ul>`)}`
 
-            for (const log of colonyMineral) {
-                if (log.colonyId === governor.colonyId) {
+            const filteredLog = colonyMineral.filter(taco =>
+                taco.colonyId === governor.colonyId)
+                for (const filteredLogs of filteredLog) {
+                   
+                    const filteredMinerals = minerals.filter(taco =>
+                    taco.id === filteredLogs.mineralId)
                     
-                    html += `${minerals.map(mineral => 
-                        `<li>${log.stock} of ${mineral.name}</li>`)}
+                    html += `${filteredMinerals.map(mineral => 
+                        `<li>${filteredLogs.stock} of ${mineral.name}</li>`).join("")}
                     ` 
+                     
+                
+                
 
                     
                 }
@@ -65,7 +72,6 @@ export const colonyStock = () => {
 
             html += "</ul>"
         }
-    }
 
     return html
 }
